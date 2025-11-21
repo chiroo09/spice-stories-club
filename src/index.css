@@ -1,0 +1,27 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Roboto:wght@300;400;500;700&display=swap');
+
+@import "tailwindcss";
+
+@theme {
+  --color-cream: #FDFBF7;
+  --color-brown: #5D4037;
+  --color-dark-brown: #3E2723;
+  --color-spice-orange: #D84315;
+  --color-surface: #FFF8E1;
+
+  --font-serif: Merriweather, "Playfair Display", serif;
+  --font-sans: Roboto, sans-serif;
+}
+
+body {
+  @apply bg-cream text-brown font-sans;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  @apply font-serif text-dark-brown;
+}
