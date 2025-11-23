@@ -53,19 +53,40 @@ const Activities = () => {
                     </p>
                 </div>
 
-                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    {activities.map((item, index) => {
-                        const Icon = item.icon;
-                        return (
-                            <div key={index} className="bg-surface border border-spice-orange/10 rounded-xl p-6 hover:shadow-md transition-all duration-300 group">
-                                <div className="bg-white w-12 h-12 rounded-full flex items-center justify-center mb-4 text-spice-orange group-hover:scale-110 transition-transform">
-                                    <Icon size={24} />
+                <div className="relative max-w-4xl mx-auto">
+                    {/* Timeline Line */}
+                    <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-spice-orange/20 hidden md:block rounded-full"></div>
+
+                    <div className="space-y-12">
+                        {activities.map((item, index) => {
+                            const Icon = item.icon;
+                            const isEven = index % 2 === 0;
+                            return (
+                                <div key={index} className={`flex flex-col md:flex-row items-center gap-8 ${isEven ? 'md:flex-row-reverse' : ''}`}>
+                                    {/* Content */}
+                                    <div className="flex-1 w-full md:w-1/2">
+                                        <div className={`bg-surface border border-spice-orange/10 rounded-xl p-6 hover:shadow-lg transition-all duration-300 group relative ${isEven ? 'md:text-right' : 'md:text-left'}`}>
+                                            {/* Connector Dot */}
+                                            <div className={`hidden md:block absolute top-1/2 transform -translate-y-1/2 w-4 h-4 bg-spice-orange rounded-full border-4 border-white shadow-sm z-10 ${isEven ? '-left-[calc(2rem+6px)]' : '-right-[calc(2rem+6px)]'}`}></div>
+
+                                            <h4 className="text-xl font-serif font-bold text-dark-brown mb-2 group-hover:text-spice-orange transition-colors">{item.title}</h4>
+                                            <p className="text-brown/80">{item.desc}</p>
+                                        </div>
+                                    </div>
+
+                                    {/* Icon */}
+                                    <div className="relative z-10 flex-shrink-0">
+                                        <div className="bg-white w-16 h-16 rounded-full flex items-center justify-center shadow-md border-4 border-surface text-spice-orange transform transition-transform group-hover:scale-110 duration-300">
+                                            <Icon size={28} />
+                                        </div>
+                                    </div>
+
+                                    {/* Empty Space for alignment */}
+                                    <div className="flex-1 hidden md:block"></div>
                                 </div>
-                                <h4 className="text-xl font-serif font-bold text-dark-brown mb-2">{item.title}</h4>
-                                <p className="text-brown/80">{item.desc}</p>
-                            </div>
-                        );
-                    })}
+                            );
+                        })}
+                    </div>
                 </div>
 
                 <div className="mt-12 bg-cream rounded-xl p-8 text-center border border-brown/10">

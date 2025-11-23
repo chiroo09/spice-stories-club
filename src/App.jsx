@@ -6,7 +6,6 @@ import About from './components/About';
 import Members from './components/Members';
 import Activities from './components/Activities';
 import Episodes from './components/Episodes';
-import Contact from './components/Contact';
 
 function App() {
   const [activeTab, setActiveTab] = useState('home');
@@ -18,7 +17,7 @@ function App() {
       case 'activities': return <Activities />;
       case 'members': return <Members />;
       case 'episodes': return <Episodes />;
-      case 'contact': return <Contact />;
+      case 'episodes': return <Episodes />;
       default: return <Home />;
     }
   };

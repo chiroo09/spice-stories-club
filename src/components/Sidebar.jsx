@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Home, Heart, Users, BookOpen, Mail, Menu, X, Sparkles } from 'lucide-react';
+import { Home, Heart, Users, BookOpen, Menu, X, Sparkles } from 'lucide-react';
 
 const Sidebar = ({ activeTab, setActiveTab }) => {
     const [isOpen, setIsOpen] = useState(false);
@@ -10,7 +10,6 @@ const Sidebar = ({ activeTab, setActiveTab }) => {
         { id: 'activities', label: 'Activities', icon: Sparkles },
         { id: 'members', label: 'The Feast', icon: Users },
         { id: 'episodes', label: 'Chapters', icon: BookOpen },
-        { id: 'contact', label: 'Contact', icon: Mail },
     ];
 
     const toggleSidebar = () => setIsOpen(!isOpen);

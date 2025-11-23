@@ -23,17 +23,31 @@ const Members = () => {
                     </p>
                 </div>
 
-                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                     {members.map((member, index) => (
-                        <div key={index} className="bg-white border border-gray-100 rounded-xl p-6 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300">
-                            <div className="text-4xl mb-4 tracking-widest">{member.emojis}</div>
-                            <h4 className="text-xl font-serif font-bold text-dark-brown mb-2">{member.title}</h4>
-                            <p className="text-brown">
-                                <strong className="text-spice-orange">Heart-food:</strong> {member.heartFood}
-                            </p>
-                            {member.note && (
-                                <p className="text-sm text-brown/60 mt-2 italic">{member.note}</p>
-                            )}
+                        <div
+                            key={index}
+                            className="group relative bg-white p-6 shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-rotate-1 hover:-translate-y-2"
+                        >
+                            {/* Card Decoration */}
+                            <div className="absolute inset-0 border-2 border-dashed border-brown/20 rounded-xl m-2 pointer-events-none group-hover:border-spice-orange/40 transition-colors"></div>
+
+                            {/* Pin Effect */}
+                            <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 w-4 h-4 bg-spice-orange rounded-full shadow-sm z-10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+
+                            <div className="text-4xl mb-6 text-center filter drop-shadow-sm">{member.emojis}</div>
+                            <h4 className="text-xl font-serif font-bold text-dark-brown mb-3 text-center border-b-2 border-spice-orange/10 pb-2">{member.title}</h4>
+                            <div className="space-y-2 text-center">
+                                <p className="text-brown">
+                                    <span className="font-bold text-spice-orange text-sm uppercase tracking-wider block mb-1">Heart Food</span>
+                                    {member.heartFood}
+                                </p>
+                                {member.note && (
+                                    <p className="text-sm text-brown/60 italic mt-3 bg-surface p-2 rounded-lg inline-block">
+                                        "{member.note}"
+                                    </p>
+                                )}
+                            </div>
                         </div>
                     ))}
                 </div>
