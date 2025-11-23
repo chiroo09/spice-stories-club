@@ -9,7 +9,7 @@ const Sidebar = ({ activeTab, setActiveTab }) => {
         { id: 'about', label: 'Our Story', icon: Heart },
         { id: 'activities', label: 'Activities', icon: Sparkles },
         { id: 'members', label: 'The Feast', icon: Users },
-        { id: 'episodes', label: 'Chapters', icon: BookOpen },
+        { id: 'episodes', label: 'The Chronicles', icon: BookOpen },
     ];
 
     const toggleSidebar = () => setIsOpen(!isOpen);
